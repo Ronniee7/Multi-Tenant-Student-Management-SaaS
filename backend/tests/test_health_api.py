@@ -64,3 +64,8 @@ def test_openapi_schema_is_admin_protected_and_contains_health_routes(api_client
     schema = json.loads(response.content)
     assert "/api/v1/health/" in schema["paths"]
     assert "/api/v1/health/ready/" in schema["paths"]
+    assert "/api/v1/auth/csrf/" in schema["paths"]
+    assert "/api/v1/auth/login/" in schema["paths"]
+    assert "/api/v1/auth/logout/" in schema["paths"]
+    assert "/api/v1/auth/me/" in schema["paths"]
+    assert "/api/v1/institutions/{institution_slug}/context/" in schema["paths"]
